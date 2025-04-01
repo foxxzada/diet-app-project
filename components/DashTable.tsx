@@ -34,72 +34,66 @@ export default function DashTable() {
 
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-4">
-      <h1 className="font-bold text-3xl">Minha Dieta</h1>
+      <h1 className="font-bold text-3xl">My Diet</h1>
       <div className="flex items-center justify-between">
         <form className="flex items-center gap-2">
-          <Input className="w-auto" name="id" placeholder="Nome do Alimento" />
-          <Input
-            className="w-auto"
-            name="cal"
-            placeholder="Calorias do Alimento"
-          />
+          <Input className="w-auto" name="id" placeholder="Food Name" />
+          <Input className="w-auto" name="cal" placeholder="Food Calories" />
           <Button type="submit" variant="ghost">
             <Search className="w-4 h-4 mr-1" />
-            Filtrar
+            Apply Filter
           </Button>
         </form>
         <Dialog>
           <DialogTrigger asChild>
             <Button>
               <PlusCircle className="w-4 h-4 mr-1" />
-              Novo Alimento
+              Add Food
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Novo Alimento</DialogTitle>
-              <DialogDescription>
-                Adicione um novo alimento na sua dieta
-              </DialogDescription>
+              <DialogTitle>Add Food</DialogTitle>
+              <DialogDescription>Add a new food to your diet</DialogDescription>
             </DialogHeader>
 
             <form className="space-y-6" action="">
               <div className="grid grid-cols-4 items-center text-right gap-3">
-                <Label htmlFor="name">Alimento</Label>
-                <Input className="col-span-3" id="name"></Input>
+                <Label htmlFor="name">Food</Label>
+                <Input className="col-span-3" id="name" />
               </div>
 
               <div className="grid grid-cols-4 items-center text-right gap-3">
-                <Label htmlFor="qty">Quantidade</Label>
-                <Input className="col-span-3" id="qty"></Input>
+                <Label htmlFor="qty">Quantity</Label>
+                <Input className="col-span-3" id="qty" />
               </div>
 
               <div className="grid grid-cols-4 items-center text-right gap-3">
-                <Label htmlFor="cal">Calorias</Label>
-                <Input className="col-span-3" id="cal"></Input>
+                <Label htmlFor="cal">Calories</Label>
+                <Input className="col-span-3" id="cal" />
               </div>
 
               <div className="grid grid-cols-4 items-center text-right gap-3">
-                <Label htmlFor="pro">Proteínas</Label>
-                <Input className="col-span-3" id="pro"></Input>
+                <Label htmlFor="pro">Proteins</Label>
+                <Input className="col-span-3" id="pro" />
               </div>
 
               <div className="grid grid-cols-4 items-center text-right gap-3">
-                <Label htmlFor="carb">Carboídratos</Label>
-                <Input className="col-span-3" id="carb"></Input>
+                <Label htmlFor="carb">Carbs</Label>
+                <Input className="col-span-3" id="carb" />
               </div>
 
               <div className="grid grid-cols-4 items-center text-right gap-3">
-                <Label htmlFor="fat">Gorduras</Label>
-                <Input className="col-span-3" id="fat"></Input>
+                <Label htmlFor="fat">Fats</Label>
+                <Input className="col-span-3" id="fat" />
               </div>
               <DialogFooter>
                 <DialogClose asChild>
                   <Button type="button" variant="outline">
-                    Cancelar
+                    Cancel
                   </Button>
                 </DialogClose>
-                <Button type="submit">Salvar</Button>
+                <Button type="submit">Save</Button>
               </DialogFooter>
             </form>
           </DialogContent>
@@ -108,23 +102,23 @@ export default function DashTable() {
       <div className="border rounded-lg p-2">
         <Table>
           <TableHeader>
-            <TableHead>Alimento</TableHead>
-            <TableHead>Quantidade</TableHead>
-            <TableHead>Calorias</TableHead>
-            <TableHead>Proteínas</TableHead>
-            <TableHead>Carboidratos</TableHead>
-            <TableHead>Gorduras</TableHead>
+            <TableHead>Food</TableHead>
+            <TableHead>Quantity</TableHead>
+            <TableHead>Calories</TableHead>
+            <TableHead>Proteins</TableHead>
+            <TableHead>Carbs</TableHead>
+            <TableHead>Fats</TableHead>
           </TableHeader>
           <TableBody>
             {meals?.map((item) => {
               return (
                 <TableRow key={item.id}>
-                  <TableCell> {item.name}</TableCell>
-                  <TableCell> {item.quantity}</TableCell>
-                  <TableCell> {item.calories}</TableCell>
-                  <TableCell> {item.proteins}</TableCell>
-                  <TableCell> {item.carbs}</TableCell>
-                  <TableCell> {item.fats}</TableCell>
+                  <TableCell>{item.name}</TableCell>
+                  <TableCell>{item.quantity}</TableCell>
+                  <TableCell>{item.calories}</TableCell>
+                  <TableCell>{item.proteins}</TableCell>
+                  <TableCell>{item.carbs}</TableCell>
+                  <TableCell>{item.fats}</TableCell>
                 </TableRow>
               );
             })}
